@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.tcbd.bdservice.dao.BdDao">
+    <!--getDevcIdByBDId -->
+    <select id="getDevcIdByBDId" resultType="java.lang.String" parameterType="java.lang.String" >
+        SELECT DEVC_ID from bd.dbo.TB_Device WHERE devc_bdid =#{bdId}
+    </select>
+
+    <!--insertTBCommunicationInfo-->
+    <insert id="insertTBCommunicationInfo" useGeneratedKeys="true" keyProperty="bdID">
+        insert into bd.dbo.TB_CommunicationInfo (DEVC_receiverID,devc_senderid,cinf_receivetime,cinf_sendtime,cinf_content,
+				cinf_flag,devc_receiverbdid,devc_senderbdid,cinf_tb_flag)
+		VALUES(#{bdDevcID},21855, GETDATE(), GETDATE(),#{message},0,#{bdID},2012,1);
+    </insert>
+</mapper>
