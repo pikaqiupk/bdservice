@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
-@Api(value = "desc of class")
 @RestController
 @RequestMapping("/api")
 public class BDController {
@@ -19,7 +18,6 @@ public class BDController {
     @Autowired
     private BDService bdService ;
 
-    @ApiOperation(value = "desc of method", notes = "")
     @ResponseBody
     @RequestMapping(value = "/sendMessageByBDId", method = {RequestMethod.POST})
     private String sendMssageByBDId(@RequestBody BDInfo info) throws JSONException {
